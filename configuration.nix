@@ -81,19 +81,28 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  #auto update
+  # auto update
   system.autoUpgrade = {
     enable = true;
     dates = "weekly";
   };
 
-  #auto clean
+  # auto clean
   nix.gc = {
     automatic = true;
     dates = "daily";
     options = "--delete-older-than 10d";
   };
   nix.settings.auto-optimise-store = true;
+
+  # passwordless sudo
+  security.sudo.extraRules = [{
+    users = ["syhrl"];
+    commands = [{
+      command = "ALL";
+      options = ["NOPASSWD"];
+    }];
+  }];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
