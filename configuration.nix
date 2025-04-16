@@ -81,6 +81,20 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  #auto update
+  system.autoUpgrade = {
+    enable = true;
+    dates = "weekly";
+  };
+
+  #auto clean
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than 10d";
+  };
+  nix.settings.auto-optimise-store = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
