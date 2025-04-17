@@ -24,6 +24,13 @@
     eza
     bat
 
+    (nerdfonts.override {
+      fonts = [
+        "IosevkaTerm"
+        "CodeNewRoman"
+      ];
+    })
+
 
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -39,6 +46,8 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+
+  fonts.fontconfig.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -75,6 +84,7 @@
     # EDITOR = "emacs";
   };
 
+  
 
 
   # Let Home Manager install and manage itself.
