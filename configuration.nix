@@ -70,6 +70,7 @@
     isNormalUser = true;
     description = "syhrl";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -77,6 +78,22 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      ls = "eza --icons";
+      cat = "bat";
+      ll = "ls -l";
+      la = "ls -a";
+      lla = "ls -la";
+    };
+    
+  };
+
+  programs.starship = {
+    enable = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
