@@ -24,6 +24,11 @@
     eza
     bat
 
+    vlc
+    brave
+    vscode
+
+
     (nerdfonts.override {
       fonts = [
         "IosevkaTerm"
@@ -82,6 +87,12 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+  };
+
+  programs.git = {
+    enable = true;
+    userName = "syhrl";
+    userEmail = "syhrlanwr@gmail.com";
   };
 
   
